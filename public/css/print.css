@@ -1,0 +1,18 @@
+/**
+ * Print Stylesheet fuer Deinewebsite.de
+* @version         1.0
+* @lastmodified    16.06.2016
+*/
+
+@media print {
+ 
+ 
+        
+       
+    @page { margin: 0.5cm;size:A4;
+    
+       font-weight: normal;
+    }
+}
+    
+  

@@ -1,0 +1,268 @@
+@media screen{
+
+
+ table { 
+  border: 0 thin;  
+ width: 100%;
+ table-layout: auto;
+ overflow-x:auto;
+ border-collapse: collapse;  
+ font-size: 10pt; font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#printContents{ 
+ /* border: thin solid #ddd ; 
+ box-shadow: 2px 0px 0px #aaaaaa; */
+ -webkit-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+ -moz-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+ box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+         
+} 
+table#charges td{
+ text-align:left;
+
+}
+table#containers tr td, tr th{
+ text-align:left;
+}
+
+
+
+
+
+
+
+
+table#charges   thead,tfoot ,table#file_info { 
+ /* border: thin solid black ; 
+ box-shadow: 1pt 1pt 1pt #aaaaaa; */
+ border-top: solid thin;
+ border-bottom: solid thin
+
+ 
+}
+/* 
+creates zebra stripes excluding header and footer
+table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+
+
+table#charges tr th,tr td,  table#file_info tr th,tr td,  table#charges tr td th{
+ /* border-bottom: 1px solid #ddd; */
+ padding-left: 5pt;
+
+}
+
+
+
+
+
+
+
+
+     th#header{
+          text-align: center;
+      }
+      .main{
+          font-size:18pt;
+          font-weight: bold;
+      }
+      .main2{
+        font-size:14pt;
+        font-weight: bold;
+      }
+
+
+
+
+
+
+  
+
+    table#charges   thead,tfoot { 
+        /* border: thin solid black ; 
+        box-shadow: 1pt 1pt 1pt #aaaaaa; */
+        border-top: solid thin;
+        border-bottom: solid thin
+      
+        
+      }
+/* 
+creates zebra stripes excluding header and footer
+    table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+
+
+   
+
+    table#top_header tr, td, h1,h2,h3{text-align:center;}
+
+
+    table#proforma_number { 
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+      
+       }
+       /* table#footer td, th{
+        padding: 5pt;
+       } */
+
+
+       td#logo img {
+        background-image: url("/images/logo.png");
+        visibility: visible;
+    } 
+}
+
+
+@media print{
+
+  /* html:after {
+
+        
+    content: "TRH (1980) LTD";
+    font-size: 720%;         
+    color: rgba(236, 232, 232, 0.1);
+
+    z-index: 9999;
+    cursor: default;
+    display: block;
+    position: fixed;
+    top: 33%;
+    right: 0;
+    bottom: 0;
+    left: 15%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    line-height: 100%;
+  
+    -webkit-pointer-events: none;
+    -moz-pointer-events: none;
+    -ms-pointer-events: none;
+    -o-pointer-events: none;
+    pointer-events: none;
+  
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  } */
+
+
+table { 
+     border: 0 thin;  
+    width: 100%;
+    table-layout: auto;
+    overflow-x:auto;
+    border-collapse: collapse;  
+    font-size: 11pt; font-family: Arial, Helvetica, sans-serif !important;
+  }
+  table#details  tr td,  table#details tr th { 
+  border:0 none;
+    padding: 5pt;
+    text-align:left;
+  }
+
+  table#proforma_number ,  tr td,  table#proforma_number tr th { 
+    /* border: none; */
+    /* padding: 5pt; */
+    text-align:center;
+  }
+  table#invoice_summary   tr td,  table#invoice_summary tr th { 
+    border: none;
+    padding: 5pt;
+    text-align:left;
+  }
+
+ th#header{
+      text-align: center;
+  }
+  .main{
+      font-size:18pt;
+      font-weight: bold;
+  }
+  .main2{
+    font-size:14pt;
+    font-weight: bold;
+  }
+  #printContents, #printContents_tab_5_1,#printContents_tab_5_2{ 
+    /* border: thin solid #ddd ; 
+    box-shadow: 2px 0px 0px #aaaaaa; */
+    -webkit-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+    -moz-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+    box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+            
+  } 
+  table#charges td{
+    text-align:left;
+
+}
+table#containers tr td, tr th{
+    text-align:left;
+}
+
+table#invoice_summary tr td, tr th{
+    text-align:left;
+}
+
+table tr td span#invoice_date ,span#exchange_rate {
+    border: 1pt solid black;
+    padding: 10pt;
+    font-weight: bolder;
+    margin-right: 10pt;
+}
+
+table tfoot {
+    font-weight: bolder;
+}
+
+
+table#charges   thead,tfoot { 
+    /* border: thin solid black ; 
+    box-shadow: 1pt 1pt 1pt #aaaaaa; */
+    border-top: solid thin;
+    border-bottom: solid thin
+  
+    
+  }
+/* 
+creates zebra stripes excluding header and footer
+table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+
+
+  table#charges tr th,tr td,  table#charges tr td th{
+    /* border-bottom: 1px solid #ddd; */
+    padding: 1pt;
+
+}
+
+
+table#top_header tr, td, h1,h2,h3{text-align:center;}
+
+
+table#proforma_number { 
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+  
+   }
+   /* table#footer td, th{
+    padding: 5pt;
+   } */
+
+
+   td#logo img {
+    background-image: url("/images/logo.png");
+    visibility: visible;
+}
+  
+
+}

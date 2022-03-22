@@ -1,0 +1,196 @@
+@media screen{
+
+
+    table tr td{ 
+        border: none;
+        padding: 2pt;
+    
+      }
+          table { 
+               border: 0 thin;  
+              width: 100%;
+              table-layout: auto;
+              overflow-x:auto;
+              border-collapse: collapse; 
+              font-size: 10pt; font-family: Arial, Helvetica, sans-serif !important; 
+    
+            }
+   
+   #printContents{ 
+    /* border: thin solid #ddd ; 
+    box-shadow: 2px 0px 0px #aaaaaa; */
+    -webkit-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+    -moz-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+    box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+            
+   } 
+  
+   
+   
+   
+   
+   
+   
+   
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+        th#header{
+             text-align: center;
+         }
+
+      
+         .main{
+             font-size:14pt;
+             font-weight: bold;
+          
+         }
+         .main2{
+           font-size:13pt;
+           font-weight: bold;
+           
+         }
+   
+   
+   
+   
+   
+   
+     
+   
+  
+   /* 
+   creates zebra stripes excluding header and footer
+       table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+   
+   
+      
+   
+     
+   
+       table#details{text-align:left;}
+
+       table#proforma_number { 
+           width: 30%;
+           margin-left: auto;
+           
+           margin-right: auto;
+         
+          }
+          /* table#footer td, th{
+           padding: 5pt;
+          } */
+   
+   
+          td#logo img {
+           background-image: url("/images/logo.png");
+           visibility: visible;
+       } 
+
+
+   }
+   
+   
+   @media print{
+   
+      table tr td{ 
+        border: none;
+        padding: 2pt;
+    
+      }
+          table { 
+               border: 0 thin;  
+              width: 100%;
+              table-layout: auto;
+              overflow-x:auto;
+              border-collapse: collapse; 
+              font-size: 10pt; font-family: Arial, Helvetica, sans-serif !important; 
+    
+            }
+   
+   #printContents{ 
+    /* border: thin solid #ddd ; 
+    box-shadow: 2px 0px 0px #aaaaaa; */
+    -webkit-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+    -moz-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+    box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+            
+   } 
+  
+   
+   
+   
+   
+   
+   
+   
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+        th#header{
+             text-align: center;
+         }
+         .main{
+             font-size:14pt;
+             font-weight: bold;
+             text-align: center;
+         }
+         .main2{
+           font-size:13pt;
+           font-weight: bold;
+           
+         }
+   
+   
+   
+   
+   
+   
+     
+   
+  
+   /* 
+   creates zebra stripes excluding header and footer
+       table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+   
+   
+      
+   
+       table#details{text-align:left;}
+   
+   
+       table#proforma_number { 
+           width: 30%;
+           margin-left: auto;
+           
+           margin-right: auto;
+         
+          }
+          /* table#footer td, th{
+           padding: 5pt;
+          } */
+   
+   
+          td#logo img {
+           background-image: url("/images/logo.png");
+           visibility: visible;
+       } 
+
+       
+   
+   }
+   

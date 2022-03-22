@@ -1,0 +1,130 @@
+@media screen{
+
+
+
+    table { 
+         border: 0 thin;  
+        width: 100%;
+        table-layout: auto;
+        overflow-x:auto;
+        border-collapse: collapse;  
+        font-size: 10pt; font-family: Arial, Helvetica, sans-serif !important;
+      }
+     
+      #printContents{ 
+        /* border: thin solid #ddd ; 
+        box-shadow: 2px 0px 0px #aaaaaa; */
+        -webkit-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+        -moz-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+        box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+                
+      } 
+      table#charges td{
+        text-align:left;
+
+    }
+    table#containers tr td, tr th{
+        text-align:left;
+    }
+    
+  
+
+
+
+ 
+
+
+    table#charges   thead,tfoot ,table#file_info { 
+        /* border: thin solid black ; 
+        box-shadow: 1pt 1pt 1pt #aaaaaa; */
+        border-top: solid thin;
+        border-bottom: solid thin
+      
+        
+      }
+/* 
+creates zebra stripes excluding header and footer
+    table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+
+
+      table#charges tr th,tr td,  table#file_info tr th,tr td,  table#charges tr td th{
+        /* border-bottom: 1px solid #ddd; */
+        padding-left: 5pt;
+
+    }
+
+    
+
+
+
+   
+
+}
+
+
+@media print{
+
+/*     
+    td#logo img {
+        background-image: url("/images/logo.png");
+        visibility: visible;
+    }  */
+ 
+
+    
+    table { 
+        border: 0 thin;  
+       width: 100%;
+       table-layout: auto;
+       overflow-x:auto;
+       border-collapse: collapse;  
+       font-size: 10pt; font-family: Arial, Helvetica, sans-serif !important;
+     }
+    
+     #printContents{ 
+       /* border: thin solid #ddd ; 
+       box-shadow: 2px 0px 0px #aaaaaa; */
+       -webkit-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+       -moz-box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+       box-shadow: -1px 0px 14px 2px rgba(0,0,0,0.33);
+               
+     } 
+     table#charges td{
+       text-align:left;
+
+   }
+   table#containers tr td, tr th{
+       text-align:left;
+   }
+   
+ 
+
+
+
+
+
+
+   table#charges   thead,tfoot ,table#file_info { 
+       /* border: thin solid black ; 
+       box-shadow: 1pt 1pt 1pt #aaaaaa; */
+       border-top: solid thin;
+       border-bottom: solid thin
+     
+       
+     }
+/* 
+creates zebra stripes excluding header and footer
+   table#charges  > tbody > tr:nth-child(odd) {  background-color: #f2f2f2 } */
+
+
+     table#charges tr th,tr td,  table#file_info tr th,tr td,  table#charges tr td th{
+       /* border-bottom: 1px solid #ddd; */
+       padding-left: 5pt;
+
+   }
+
+   
+
+    
+
+}

@@ -1,0 +1,308 @@
+input[type=text],input[type=password],
+input[type=email],input[type=tel]{
+    width: 90%;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    display: inline-block;
+    border: 1px solid green;
+    font-size: 1.5em;
+}
+
+select{
+    width: 90%;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    display: inline-block;
+    border: 1px solid green;
+    font-size: 1.5em;
+}
+
+.modal-container button{
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 80%;
+}
+
+.styleBtnSave button{
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    font-size: 20px;
+}
+
+input:active{
+    cursor: pointer;
+}
+.modal-container button:hover{
+    opacity: 0.8;
+}
+
+.imgcontainer{
+    text-align: center;
+    margin: 24px 0px 12px 0px;
+    position: relative;
+}
+
+.avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /*height: 100%;*/
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: 4% auto 15% auto;
+    border: 1px solid #888;
+    width: 40%;
+    padding-bottom: 30px;
+}
+
+.close{
+    position: absolute;
+    right: 25px;
+    top: 0px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,.close:focus{
+    color: red;
+    cursor: pointer;
+}
+
+.animate{
+    animation: zoom 0.6s;
+}
+
+@keyframes zoom{
+    from {transform : scale(0)}
+    to {transform : scale(1)}
+}
+
+
+.register-input[type=text],.register-input[type=password]{
+    width: 90%;
+    /*padding: 12px 20px;*/
+    margin: 8px 26px;
+    display: inline-block;
+    border: 1px solid green;
+    font-size: 1.5em;
+}
+
+.register-modal-container button{
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    font-size: 20px;
+}
+
+.register-modal-container button:hover{
+    opacity: 0.8;
+}
+
+.register-imgcontainer{
+    text-align: center;
+    margin: 12px 0px 6px 0px;
+    position: relative;
+}
+
+.register-avatar{
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.register-modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 98%;
+    /*height: 100%;*/
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.register-modal-content{
+    background-color: #fefefe;
+    margin: 4% auto 15% auto;
+    border: 1px solid #888;
+    width: 40%;
+    padding-bottom: 30px;
+}
+
+.register-close{
+    position: absolute;
+    right: 25px;
+    top: 0px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.register-close:hover,.register-close:focus{
+    color: red;
+    cursor: pointer;
+}
+
+.register-animate{
+    animation: zoom 0.6s;
+}
+
+@keyframes zoom{
+    from {transform : scale(0)}
+    to {transform : scale(1)}
+}
+
+
+.colose-modal{
+        display:none;
+        position: fixed;
+        z-index: 1;
+        width: 98%;
+        height: 98%;
+        top: 0;
+        left: 0;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+}
+
+.colose-modal-content{
+        background-color: #f4f4f4;
+        width: 600px;
+        margin: 50px auto;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17) ;
+        animation-name: modaloopen;
+        animation-duration: 1.8s;
+}
+
+.colose-modal-header h2, .colose-modal-footer h3{
+        margin: 0px;
+}
+
+.colose-modal-header{
+        background-color: coral ;
+        padding: 10px;
+        color: #fff;
+}
+
+.colose-modal-body{
+        padding: 10px 20px;
+}
+
+.colose-modal-footer
+{
+    text-align: center;
+    background: coral;
+    padding: 10px;
+    color: #fff;
+}
+
+@keyframes modaloopen{
+        from{opacity:0}
+        to {opacity: 1}
+}
+
+.closeBtn{
+        color: #ccc;
+        float: right;
+        font-size: 30px;
+        color: #fff;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+        color: #000;
+        cursor: pointer;
+        text-decoration: none;
+}
+
+.tracking-modal{
+        display:none;
+        position: fixed;
+        z-index: 1;
+        width: 98%;
+        height: 98%;
+        top: 0;
+        left: 0;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tracking-modal-content{
+        background-color: #f4f4f4;
+        width: 90%;
+        margin: 50px auto;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17) ;
+        animation-name: trackingModalOpen;
+        animation-duration: 1.8s;
+}
+
+.tracking-modal-header h2, .tracking-modal-footer h3{
+        margin: 0px;
+}
+
+.tracking-modal-header{
+        background-color: coral ;
+        padding: 10px;
+        color: #fff;
+}
+
+.tracking-modal-body{
+    padding: 10px 20px;
+}
+
+.tracking-modal-footer
+{
+    text-align: center;
+    background: coral;
+    padding: 10px;
+    color: #fff;
+}
+
+@keyframes trackingModalOpen{
+        from{opacity:0}
+        to {opacity: 1}
+}
+
+.trackingBtn{
+        color: #ccc;
+        float: right;
+        font-size: 30px;
+        color: #fff;
+}
+
+.trackingBtn:hover,.trackingBtn:focus{
+        color: #000;
+        cursor: pointer;
+        text-decoration: none;
+}            
+
+

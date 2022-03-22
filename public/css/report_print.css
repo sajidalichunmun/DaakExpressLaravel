@@ -1,0 +1,37 @@
+
+
+  @page {
+      margin: 1cm;
+      
+ }
+ @page rotated { size: landscape }
+  body {font-size: 12pt;}
+  table, th, td
+  {
+    border-collapse:collapse;
+    border: 1px solid black;
+    width:100%;
+    text-align:right;
+  }
+  
+  /* .standard_report_printout{
+    margin:10px;			
+    margin-left:2.54cm;
+    margin-right:2.54cm;
+    font-size:11pt; 
+  }
+  
+  .standard_report_printout table tr td,th {
+      font-size:11pt;			
+  }			
+      
+  .standard_report_printout p {
+      font-size:11pt;	
+  }		
+  
+
+  
+  .table tr td {
+      white-space: nowrap;
+      
+  } */

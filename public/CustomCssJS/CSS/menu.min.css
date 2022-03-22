@@ -1,0 +1,62 @@
+
+/* HR ELEMENT DRAW LINE COLORFULL*/
+.zig-zag {
+        border: none;
+        width: 80%;
+        /*margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;*/
+        height: 40px;
+        background: linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -20px 0,
+        linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -20px 0,
+        linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
+        linear-gradient(45deg, #ECEDDC 25%, transparent 25%);
+        background-size: 40px 40px;
+        background-color: #EC173A;
+    }
+hr{border: 1px solid red;border-radius: 2px;}
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu:hover>.dropdown-menu{display:block;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+
+.dropdown-submenu1{position:relative;}
+.dropdown-submenu1>.dropdown-menu1{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu1:hover>.dropdown-menu1{display:block;}
+.dropdown-submenu1>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+        background-color: #555;
+        color: white;
+        padding: 1px;
+        width: 100%;
+        text-align: center;
+        /*border: 1px solid yellow;
+        box-shadow: 0px 0px 3px 3px red, 0px 0px 3px 3px grey;*/
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+        .sidenav {
+            height: auto;
+            padding: 15px;
+        }
+        .row.content {height:auto;} 
+    }
