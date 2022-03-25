@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Sms;
+namespace App\sms;
 
 interface SmsInterface
 {
