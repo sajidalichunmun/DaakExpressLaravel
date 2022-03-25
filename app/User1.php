@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 //Model implements Authenticatable
-class User extends Authenticatable
+class User1 extends Authenticatable
 {
     // use Notifiable,HasFactory;
     use  HasFactory, HasApiTokens, Notifiable;
