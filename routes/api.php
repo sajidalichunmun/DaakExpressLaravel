@@ -32,6 +32,9 @@ Route::post('reset','Api\ApiLoginController@reset');
 Route::get('/awb', 'api\ApiAwbMasterController@GetList');
 Route::get('/awb/{id}', 'api\ApiAwbMasterController@GetDataById');
 
+Route::get('/packettype', 'api\ApiPacketTypeController@GetList');
+Route::get('/packettype/{id}', 'api\ApiPacketTypeController@GetDataById');
+
 Route::get('/country', 'api\ApiCountryController@GetList');
 Route::get('/country/{id}', 'api\ApiCountryController@GetDataById');
 
@@ -41,8 +44,8 @@ Route::get('/state/{id}', 'api\ApiStateController@GetDataById');
 Route::get('/city', 'api\ApiCityController@GetList');
 Route::get('/city/{id}', 'api\ApiCityController@GetDataById');
 
-Route::get('/relation', 'api\ApiRelationController@GetList');
-Route::get('/relation/{id}', 'api\ApiRelationController@GetDataById');
+// Route::get('/relation', 'api\ApiRelationController@GetList');
+// Route::get('/relation/{id}', 'api\ApiRelationController@GetDataById');
 
 Route::get('/reason', 'api\ApiReasonController@GetList');
 Route::get('/reason/{id}', 'api\ApiReasonController@GetDataById');
@@ -57,6 +60,10 @@ Route::group(['middleware' => ['auth:api']], function ()
 {
     Route::get('/user',[App\Http\Controllers\Api\ApiLoginController::class,'user']);
     Route::post('/apilogout',[App\Http\Controllers\Api\ApiLoginController::class,'apilogout']);
+
+    Route::post('/packettype', [api\ApiPacketTypeController::class,'store']);
+    Route::put('/packettype/{id}', [api\ApiPacketTypeController::class,'update']);
+    Route::delete('/packettype/{id}', [api\ApiPacketTypeController::class,'delete']);
 
     Route::post('/country', [api\ApiCountryController::class,'store']);
     Route::put('/country/{id}', [api\ApiCountryController::class,'update']);

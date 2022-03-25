@@ -9,16 +9,16 @@ use DateTime;
 use Exception;
 use App\User;
 use Auth;
-use App\Models\RelationModel;
+use App\Models\PacketTypeModel;
 
-class RelationBusinessLogic implements IBusinessLogic
+class PacketTypeBusinessLogic implements IBusinessLogic
 {
     public $successStatus = 200;
     public $msg = 'Record successfully ';
     public $notFound = 'Record not found';
     private $Model;
 
-    public function __construct(RelationModel $model)
+    public function __construct(PacketTypeModel $model)
     {
         $this->Model = $model;
     }
@@ -37,12 +37,12 @@ class RelationBusinessLogic implements IBusinessLogic
     {
         try{
             
-            $request->validate([
-                'name' => 'required|unique:PacketStatus|max:100'
+            $data = $request->validate([
+                'name' => 'required|unique:packettypemaster|max:100'
             ]);
-            
+
             $data['Name'] = $request->name;
-            
+            $data['PacketTypeShortCode'] = $request->packettypeshortcode;
 
             $data['CreatedBy'] = Auth::user()->name;
                         
@@ -66,9 +66,10 @@ class RelationBusinessLogic implements IBusinessLogic
         try{
             
             $data = $request->validate([
-                'name' => 'required|max:100'
+                'name' => 'required|max:100',
+                'packettypeshortcode' => 'required|max:100'
             ]);
-            
+
             $todo = $this->Model::find($request->id);
             if(is_null($todo))
             {
@@ -76,6 +77,7 @@ class RelationBusinessLogic implements IBusinessLogic
             }
                 
             $data['Name'] = $request->name;
+            $data['PacketTypeShortCode'] = $request->packettypeshortcode;
             $data['UpdatedBy'] = Auth::user()->name;
 				
 			$curTime = new \DateTime();
@@ -84,10 +86,8 @@ class RelationBusinessLogic implements IBusinessLogic
 
             $result = $this->Model::where('Id',$todo->ID)->update($data);
             
-            if($result){
-                $todo = $this->Model::find($request->id);
+            if($result)
                 return response()->json(['curd_option' => 'update','status' => 'success' ,'message' => $this->msg. 'Updated...', 'data' => $todo],201);
-            }
             else
                 return response()->json(['curd_option' => 'update error','status' => 'success' ,'message' => 'Some error Update', 'data' => null],404);
         }catch(\Exception $ex){

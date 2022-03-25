@@ -25,7 +25,7 @@ class PacketStatusBusinessLogic implements IBusinessLogic
 
     public function list()
     {
-        $result = $this->Model::paginate(25);
+        $result = $this->Model::latest('id')->get();//paginate(25);
         if(is_null($result))
         {
             return response()->JSON(['status' => 'success', 'message' => $this->notFound],404);
