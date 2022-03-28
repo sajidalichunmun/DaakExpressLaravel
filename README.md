@@ -23,6 +23,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Download Project
 
 - Goto project folder and run the command in terminal : composer update --no-scripts
+- composer dump-autoload
 - Create .env file
 - Run the command in terminal : php artisan serve
 
