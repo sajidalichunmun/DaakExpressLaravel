@@ -25,6 +25,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - Goto project folder and run the command in terminal : composer update --no-scripts
 - composer dump-autoload
 - Create .env file
+- Install passport in command terninal : php artisan passport:install
 - Run the command in terminal : php artisan serve
 
 ## Learning Laravel
