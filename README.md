@@ -26,6 +26,7 @@ Goto project folder and run the command in terminal : composer update --no-scrip
 
 Create .env file
 
+Run the command in terminal : php artisan serve
 
 ## Learning Laravel
 
