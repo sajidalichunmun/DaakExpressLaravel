@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SGL') }}</title>
+    <title>{{ config('app.name', 'Daak Express Courier & Logistics') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -169,6 +169,11 @@ background-color: #000 !important;
                                     </span>
                                 @endif
                             </div>
+                             @if ($errors->has('errors'))
+                                <span class="help-block">
+                                    <strong style="color:red;">{{ $errors->first('errors') }}</strong>
+                                </span>
+                            @endif
                             <div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">Log in</button>
 							</div>
