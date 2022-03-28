@@ -15,6 +15,10 @@ use App\Repositories\CityBusinessLogic;
 use App\Repositories\PacketStatusBusinessLogic;
 use App\Repositories\ReasonBusinessLogic;
 use App\Repositories\RelationBusinessLogic;
+use App\Repositories\FranchiseeBusinessLogic;
+use App\Repositories\MajorCodeBusinessLogic;
+use App\Repositories\ClientCodeBusinessLogic;
+use App\Repositories\SubAreaBusinessLogic;
 
 class AppServiceProvider extends ServiceProvider
 {
