@@ -20,13 +20,11 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
-## download project
+## Download Project
 
-Goto project folder and run the command in terminal : composer update --no-scripts
-
-Create .env file
-
-Run the command in terminal : php artisan serve
+- Goto project folder and run the command in terminal : composer update --no-scripts
+- Create .env file
+- Run the command in terminal : php artisan serve
 
 ## Learning Laravel
 
