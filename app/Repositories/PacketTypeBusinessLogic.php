@@ -38,8 +38,12 @@ class PacketTypeBusinessLogic implements IBusinessLogic
         try{
             
             $data = $request->validate([
+
                 'name' => 'required|unique:packettypemaster|max:100',
                 'packettypeshortcode' => 'required|max:100'
+
+                'name' => 'required|unique:packettypemaster|max:100'
+
             ]);
 
             $data['Name'] = $request->name;

@@ -48,12 +48,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IBusinessLogic::class,DeliveryBusinessLogic::class);
         $this->app->bind(IBusinessLogic::class,PacketTypeBusinessLogic::class);
 
+
         $this->app->bind(IBusinessLogic::class,MajorCodeBusinessLogic::class);
         $this->app->bind(IBusinessLogic::class,ClientCodeBusinessLogic::class);
         $this->app->bind(IBusinessLogic::class,FranchiseeBusinessLogic::class);
         $this->app->bind(IBusinessLogic::class,SubAreaBusinessLogic::class);
 
-        
     }
 
     /**

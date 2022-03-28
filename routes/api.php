@@ -44,8 +44,8 @@ Route::get('/state/{id}', 'api\ApiStateController@GetDataById');
 Route::get('/city', 'api\ApiCityController@GetList');
 Route::get('/city/{id}', 'api\ApiCityController@GetDataById');
 
-Route::get('/relation', 'api\ApiRelationController@GetList');
-Route::get('/relation/{id}', 'api\ApiRelationController@GetDataById');
+// Route::get('/relation', 'api\ApiRelationController@GetList');
+// Route::get('/relation/{id}', 'api\ApiRelationController@GetDataById');
 
 Route::get('/reason', 'api\ApiReasonController@GetList');
 Route::get('/reason/{id}', 'api\ApiReasonController@GetDataById');
@@ -76,6 +76,7 @@ Route::group(['middleware' => ['auth:api']], function ()
     Route::put('/packettype/{id}', [api\ApiPacketTypeController::class,'update']);
     Route::delete('/packettype/{id}', [api\ApiPacketTypeController::class,'delete']);
 
+
     Route::post('/major', [api\ApiMajorCodeController::class,'store']);
     Route::put('/major/{id}', [api\ApiMajorCodeController::class,'update']);
     Route::delete('/major/{id}', [api\ApiMajorCodeController::class,'delete']);
@@ -83,6 +84,7 @@ Route::group(['middleware' => ['auth:api']], function ()
     Route::post('/client', [api\ApiClientCodeController::class,'store']);
     Route::put('/client/{id}', [api\ApiClientCodeController::class,'update']);
     Route::delete('/client/{id}', [api\ApiClientCodeController::class,'delete']);
+
 
     Route::post('/country', [api\ApiCountryController::class,'store']);
     Route::put('/country/{id}', [api\ApiCountryController::class,'update']);

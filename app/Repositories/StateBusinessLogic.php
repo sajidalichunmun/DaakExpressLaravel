@@ -25,7 +25,11 @@ class StateBusinessLogic implements IBusinessLogic
 
     public function list()
     {
+
         $result = $this->Model::latest('id')->get();//paginate(25);
+
+        $result = $this->Model::with('country')->latest('id')->get();//paginate(25);
+
         if(is_null($result))
         {
             return response()->JSON(['curd_option' => 'checking list','status' => 'success', 'message' => $this->notFound],404);

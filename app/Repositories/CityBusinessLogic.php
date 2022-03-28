@@ -25,7 +25,11 @@ class CityBusinessLogic implements IBusinessLogic
 
     public function list()
     {
+
         $result = $this->Model::latest('id')->get();//paginate(25);
+
+        $result = $this->Model::with('State')->latest('id')->get();//paginate(25);
+
         if(is_null($result))
         {
             return response()->JSON(['curd_option' => 'checking list','status' => 'success', 'message' => $this->notFound],404);
