@@ -44,8 +44,8 @@ Route::get('/state/{id}', 'api\ApiStateController@GetDataById');
 Route::get('/city', 'api\ApiCityController@GetList');
 Route::get('/city/{id}', 'api\ApiCityController@GetDataById');
 
-// Route::get('/relation', 'api\ApiRelationController@GetList');
-// Route::get('/relation/{id}', 'api\ApiRelationController@GetDataById');
+Route::get('/relation', 'api\ApiRelationController@GetList');
+Route::get('/relation/{id}', 'api\ApiRelationController@GetDataById');
 
 Route::get('/reason', 'api\ApiReasonController@GetList');
 Route::get('/reason/{id}', 'api\ApiReasonController@GetDataById');
@@ -53,6 +53,17 @@ Route::get('/reason/{id}', 'api\ApiReasonController@GetDataById');
 Route::get('/packetstatus', 'api\ApiPacketStatusController@GetList');
 Route::get('/packetstatus/{id}', 'api\ApiPacketStatusController@GetDataById');
 
+Route::get('/major', 'api\ApiMajorCodeController@GetList');
+Route::get('/major/{id}', 'api\ApiMajorCodeController@GetDataById');
+
+Route::get('/client', 'api\ApiClientCodeController@GetList');
+Route::get('/client/{id}', 'api\ApiClientCodeController@GetDataById');
+
+Route::get('/subcity', 'api\ApiSubAreaController@GetList');
+Route::get('/subcity/{id}', 'api\ApiSubAreaController@GetDataById');
+
+Route::get('/franchisee', 'api\ApiFranchiseeController@GetList');
+Route::get('/franchisee/{id}', 'api\ApiFranchiseeController@GetDataById');
 
 //protected routes
 // Route::group(['middleware' => ['auth:sanctum']], function () 
@@ -64,6 +75,14 @@ Route::group(['middleware' => ['auth:api']], function ()
     Route::post('/packettype', [api\ApiPacketTypeController::class,'store']);
     Route::put('/packettype/{id}', [api\ApiPacketTypeController::class,'update']);
     Route::delete('/packettype/{id}', [api\ApiPacketTypeController::class,'delete']);
+
+    Route::post('/major', [api\ApiMajorCodeController::class,'store']);
+    Route::put('/major/{id}', [api\ApiMajorCodeController::class,'update']);
+    Route::delete('/major/{id}', [api\ApiMajorCodeController::class,'delete']);
+
+    Route::post('/client', [api\ApiClientCodeController::class,'store']);
+    Route::put('/client/{id}', [api\ApiClientCodeController::class,'update']);
+    Route::delete('/client/{id}', [api\ApiClientCodeController::class,'delete']);
 
     Route::post('/country', [api\ApiCountryController::class,'store']);
     Route::put('/country/{id}', [api\ApiCountryController::class,'update']);
@@ -77,6 +96,10 @@ Route::group(['middleware' => ['auth:api']], function ()
     Route::put('/city/{id}', [api\ApiCityController::class,'update']);
     Route::delete('/city/{id}', [api\ApiCityController::class,'delete']);
     
+    Route::post('/subcity', [api\ApiSubAreaController::class,'store']);
+    Route::put('/subcity/{id}', [api\ApiSubAreaController::class,'update']);
+    Route::delete('/subcity/{id}', [api\ApiSubAreaController::class,'delete']);
+
     Route::post('/relation', [api\ApiRelationController::class,'store']);
     Route::put('/relation/{id}', [api\ApiRelationController::class,'update']);
     Route::delete('/relation/{id}', [api\ApiRelationController::class,'delete']);
@@ -88,5 +111,9 @@ Route::group(['middleware' => ['auth:api']], function ()
     Route::post('/packetstatus', 'api\ApiPacketStatusController@store');
     Route::put('/packetstatus/{id}', 'api\ApiPacketStatusController@update');
     Route::delete('/packetstatus/{id}', 'api\ApiPacketStatusController@delete');
+
+    Route::post('/franchisee', [api\ApiFranchiseeController::class,'store']);
+    Route::put('/franchisee/{id}', [api\ApiFranchiseeController::class,'update']);
+    Route::delete('/franchisee/{id}', [api\ApiFranchiseeController::class,'delete']);
 });
 
