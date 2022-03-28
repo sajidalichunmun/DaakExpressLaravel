@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\StateModel;
 use App\Interfaces\IBusinessLogic;
 use DB;
 use Carbon\Carbon;
@@ -10,15 +9,16 @@ use DateTime;
 use Exception;
 use App\User;
 use Auth;
+use App\Models\MajorCodeModel;
 
-class StateBusinessLogic implements IBusinessLogic
+class MajorCodeBusinessLogic implements IBusinessLogic
 {
     public $successStatus = 200;
     public $msg = 'Record successfully ';
     public $notFound = 'Record not found';
     private $Model;
 
-    public function __construct(StateModel $model)
+    public function __construct(MajorCodeModel $model)
     {
         $this->Model = $model;
     }
@@ -38,11 +38,15 @@ class StateBusinessLogic implements IBusinessLogic
         try{
             
             $request->validate([
-                'name' => 'required|unique:statemaster|max:100'
+                'name' => 'required|unique:clientmajormaster|max:100'
             ]);
             
+            $data['MajorCode'] = $request->majorcode;
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
+            $data['MobileNo'] = $request->mobileno;
+            $data['Address1'] = $request->address1;
+            $data['Address2'] = $request->address2;
+            $data['Description'] = $request->description;
 
             $data['CreatedBy'] = Auth::user()->name;
                         
@@ -75,9 +79,13 @@ class StateBusinessLogic implements IBusinessLogic
                 return response()->json(['curd_option' => 'checking update','status' => 'success', 'message' => $this->notFound ],404);
             }
                 
+            $data['MajorCode'] = $request->majorcode;
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
-
+            $data['MobileNo'] = $request->mobileno;
+            $data['Address1'] = $request->address1;
+            $data['Address2'] = $request->address2;
+            $data['Description'] = $request->description;
+            
             $data['UpdatedBy'] = Auth::user()->name;
 				
 			$curTime = new \DateTime();

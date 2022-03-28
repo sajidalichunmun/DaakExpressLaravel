@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 //use App\Filters\Users\UsersFilter;
 //use Illuminate\Database\Eloquent\Builder;
 
-class User extends Model
+class User1 extends Model
 {
     /**
      * The database table used by the model.

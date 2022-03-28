@@ -25,22 +25,12 @@ class RelationBusinessLogic implements IBusinessLogic
 
     public function list()
     {
-        $result = $this->Model::paginate(25);
+        $result = $this->Model::latest('id')->get();//paginate(25);
         if(is_null($result))
         {
-            return response()->JSON(['status' => 'success', 'message' => $this->notFound],404);
+            return response()->JSON(['curd_option' => 'checking list','status' => 'success', 'message' => $this->notFound],404);
         }
-        return response()->JSON(['status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
-    }
-
-    public function show($id)
-    {
-        $result = $this->Model::Find($id);
-        if(is_null($result))
-        {
-            return response()->JSON(['status' => 'success', 'message' => $this->notFound],404);
-        }
-        return response()->JSON(['status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
+        return response()->JSON(['curd_option' => 'list','status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
     }
 
     public function store($request)
@@ -48,10 +38,10 @@ class RelationBusinessLogic implements IBusinessLogic
         try{
             
             $request->validate([
-                'name' => 'required|unique:PacketStatus|max:100'
+                'name' => 'required|unique:relationmaster|max:100'
             ]);
             
-            $data['Name'] = $request['name'];
+            $data['Name'] = $request->name;
             
 
             $data['CreatedBy'] = Auth::user()->name;
@@ -63,22 +53,12 @@ class RelationBusinessLogic implements IBusinessLogic
 
             $result = $this->Model::create($data);
             if($result)
-                return response()->json(['option' => 'save', 'status' => 'success' ,'message' => $this->msg. 'Saved..', 'data' => $result],$this->successStatus);
+                return response()->json(['curd_option' => 'save', 'status' => 'success' ,'message' => $this->msg. 'Saved..', 'data' => $result],$this->successStatus);
             else
-                return response()->json(['option' => 'error','status' => 'success' ,'message' => 'Some error Save', 'data' => null],404);
+                return response()->json(['curd_option' => 'save error','status' => 'success' ,'message' => 'Some error Save', 'data' => null],404);
         }catch(\Exception $ex){
-            return response()->json(['option' => 'error','message' => $ex->getMessage()],404);
+            return response()->json(['curd_option' => 'save excpttion','option' => 'error','message' => $ex->getMessage()],404);
         }
-    }
-
-    public function edit($id)
-    {
-        $result = $this->Model::Find($id);
-        if(is_null($result))
-        {
-            return response()->json(['status' => 'success', 'message' => $this->notFound],404);
-        }
-        return response()->json(['status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
     }
 
     public function update($request, $id)
@@ -92,7 +72,7 @@ class RelationBusinessLogic implements IBusinessLogic
             $todo = $this->Model::find($request->id);
             if(is_null($todo))
             {
-                return response()->json(['status' => 'success', 'message' => $this->notFound ],404);
+                return response()->json(['curd_option' => 'checking update','status' => 'success', 'message' => $this->notFound ],404);
             }
                 
             $data['Name'] = $request->name;
@@ -104,12 +84,14 @@ class RelationBusinessLogic implements IBusinessLogic
 
             $result = $this->Model::where('Id',$todo->ID)->update($data);
             
-            if($result)
-                return response()->json(['option' => 'update','status' => 'success' ,'message' => $this->msg. 'Updated...', 'data' => $todo],201);
+            if($result){
+                $todo = $this->Model::find($request->id);
+                return response()->json(['curd_option' => 'update','status' => 'success' ,'message' => $this->msg. 'Updated...', 'data' => $todo],201);
+            }
             else
-                return response()->json(['option' => 'error','status' => 'success' ,'message' => 'Some error Update', 'data' => null],404);
+                return response()->json(['curd_option' => 'update error','status' => 'success' ,'message' => 'Some error Update', 'data' => null],404);
         }catch(\Exception $ex){
-            return response()->json(['option' => 'error','status' => 'error', 'message' => $ex->getMessage()],404);
+            return response()->json(['curd_option' => 'update exception','option' => 'error','status' => 'error', 'message' => $ex->getMessage()],404);
         }
     }
 
@@ -120,19 +102,19 @@ class RelationBusinessLogic implements IBusinessLogic
             $result = $this->Model::find($id);
             if(is_null($result))
             {
-                return response()->json(['status' => 'success', "message" => $this->notFound ],404);
+                return response()->json(['curd_option' => 'checking delete','status' => 'success', "message" => $this->notFound ],404);
             }
             
             $deleted = $this->Model::where('id',$result->ID)->delete();
 
             if ($deleted) 
-                return response()->json(['status' => 'success' ,'message' => $this->msg. 'Deleted...', 'data' => null],201);
+                return response()->json(['curd_option' => 'delete','status' => 'success' ,'message' => $this->msg. 'Deleted...', 'data' => null],201);
                 // return response()->json(['data' => null,'status' => 'success', 'message' => $this->msg. 'Deleted...'],204);
              // no content
              else
-                return response()->json(['status' => 'success' ,'message' => 'Some error in deleting... ', 'data' => null],201);
+                return response()->json(['curd_option' => 'delete error','status' => 'success' ,'message' => 'Some error in deleting... ', 'data' => null],201);
         }catch(\Exception $ex){
-            return response()->json(['status' => 'error', 'message' => $ex->getMessage()],404);
+            return response()->json(['curd_option' => 'delete exception','status' => 'error', 'message' => $ex->getMessage()],404);
         }
     }
 }

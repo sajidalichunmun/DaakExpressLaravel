@@ -184,6 +184,7 @@ return [
 		//'Collective\Html\HtmlServiceProvider',
 		Webklex\IMAP\Providers\LaravelServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
+        // Grohiro\LaravelCamelCaseJson\CamelCaseJsonResponseServiceProvider::class,
     ],
 
     /*

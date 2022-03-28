@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\StateModel;
 use App\Interfaces\IBusinessLogic;
 use DB;
 use Carbon\Carbon;
@@ -10,15 +9,16 @@ use DateTime;
 use Exception;
 use App\User;
 use Auth;
+use App\Models\FranchiseeModel;
 
-class StateBusinessLogic implements IBusinessLogic
+class FranchiseeBusinessLogic implements IBusinessLogic
 {
     public $successStatus = 200;
     public $msg = 'Record successfully ';
     public $notFound = 'Record not found';
     private $Model;
 
-    public function __construct(StateModel $model)
+    public function __construct(FranchiseeModel $model)
     {
         $this->Model = $model;
     }
@@ -38,11 +38,19 @@ class StateBusinessLogic implements IBusinessLogic
         try{
             
             $request->validate([
-                'name' => 'required|unique:statemaster|max:100'
+                'name' => 'required|unique:franchiseemaster|max:100'
             ]);
             
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
+            $data['GSTNO'] = $request->gstno;
+            $data['PANNO'] = $request->panno;
+            $data['CONTACT1'] = $request->contact1;
+            $data['CONTACT2'] = $request->contact2;
+            $data['EMAILID'] = $request->emailid;
+            $data['Pincode'] = $request->pincode;
+            $data['Address1'] = $request->address1;
+            $data['Address2'] = $request->address2;
+            $data['SubCityID'] = $request->subcityid;
 
             $data['CreatedBy'] = Auth::user()->name;
                         
@@ -76,8 +84,16 @@ class StateBusinessLogic implements IBusinessLogic
             }
                 
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
-
+            $data['GSTNO'] = $request->gstno;
+            $data['PANNO'] = $request->panno;
+            $data['CONTACT1'] = $request->contact1;
+            $data['CONTACT2'] = $request->contact2;
+            $data['EMAILID'] = $request->emailid;
+            $data['Pincode'] = $request->pincode;
+            $data['Address1'] = $request->address1;
+            $data['Address2'] = $request->address2;
+            $data['SubCityID'] = $request->subcityid;
+            
             $data['UpdatedBy'] = Auth::user()->name;
 				
 			$curTime = new \DateTime();

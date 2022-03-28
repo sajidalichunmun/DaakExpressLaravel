@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\StateModel;
 use App\Interfaces\IBusinessLogic;
 use DB;
 use Carbon\Carbon;
@@ -10,15 +9,16 @@ use DateTime;
 use Exception;
 use App\User;
 use Auth;
+use App\Models\SubAreaModel;
 
-class StateBusinessLogic implements IBusinessLogic
+class SubAreaBusinessLogic implements IBusinessLogic
 {
     public $successStatus = 200;
     public $msg = 'Record successfully ';
     public $notFound = 'Record not found';
     private $Model;
 
-    public function __construct(StateModel $model)
+    public function __construct(SubAreaModel $model)
     {
         $this->Model = $model;
     }
@@ -38,11 +38,13 @@ class StateBusinessLogic implements IBusinessLogic
         try{
             
             $request->validate([
-                'name' => 'required|unique:statemaster|max:100'
+                'name' => 'required|unique:subcitymaster|max:100'
             ]);
             
+            $data['CityID'] = $request->cityid;
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
+            $data['MainAreaName'] = $request->mainareaname;
+            $data['Pincode'] = $request->pincode;
 
             $data['CreatedBy'] = Auth::user()->name;
                         
@@ -75,9 +77,11 @@ class StateBusinessLogic implements IBusinessLogic
                 return response()->json(['curd_option' => 'checking update','status' => 'success', 'message' => $this->notFound ],404);
             }
                 
+            $data['CityID'] = $request->cityid;
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
-
+            $data['MainAreaName'] = $request->mainareaname;
+            $data['Pincode'] = $request->pincode;
+            
             $data['UpdatedBy'] = Auth::user()->name;
 				
 			$curTime = new \DateTime();

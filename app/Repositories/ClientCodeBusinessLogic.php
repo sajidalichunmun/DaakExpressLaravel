@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\StateModel;
 use App\Interfaces\IBusinessLogic;
 use DB;
 use Carbon\Carbon;
@@ -10,15 +9,16 @@ use DateTime;
 use Exception;
 use App\User;
 use Auth;
+use App\Models\ClientCodeModel;
 
-class StateBusinessLogic implements IBusinessLogic
+class ClientCodeBusinessLogic implements IBusinessLogic
 {
     public $successStatus = 200;
     public $msg = 'Record successfully ';
     public $notFound = 'Record not found';
     private $Model;
 
-    public function __construct(StateModel $model)
+    public function __construct(ClientCodeModel $model)
     {
         $this->Model = $model;
     }
@@ -38,11 +38,17 @@ class StateBusinessLogic implements IBusinessLogic
         try{
             
             $request->validate([
-                'name' => 'required|unique:statemaster|max:100'
+                'name' => 'required|unique:clientcodemaster|max:100'
             ]);
             
+            $data['ClientMajorID'] = $request->clientmajorid;
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
+            $data['Description'] = $request->description;
+            $data['ContactPerson'] = $request->contactperson;
+            $data['ContactMNo'] = $request->contactmnno;
+            $data['ContactPhNo'] = $request->contactphno;
+            $data['PacketTypeID'] = $request->packettypeid;
+            $data['GSTNO'] = $request->gstno;
 
             $data['CreatedBy'] = Auth::user()->name;
                         
@@ -75,9 +81,15 @@ class StateBusinessLogic implements IBusinessLogic
                 return response()->json(['curd_option' => 'checking update','status' => 'success', 'message' => $this->notFound ],404);
             }
                 
+            $data['ClientMajorID'] = $request->clientmajorid;
             $data['Name'] = $request->name;
-            $data['CountryID'] = $request->countryid;            
-
+            $data['Description'] = $request->description;
+            $data['ContactPerson'] = $request->contactperson;
+            $data['ContactMNo'] = $request->contactmnno;
+            $data['ContactPhNo'] = $request->contactphno;
+            $data['PacketTypeID'] = $request->packettypeid;
+            $data['GSTNO'] = $request->gstno;
+            
             $data['UpdatedBy'] = Auth::user()->name;
 				
 			$curTime = new \DateTime();
