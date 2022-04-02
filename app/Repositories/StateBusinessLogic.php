@@ -22,19 +22,19 @@ class StateBusinessLogic implements IBusinessLogic
         $result = $this->Model::with('country')->latest('id')->get();//paginate(25);
         if(is_null($result))
         {
-            return response()->JSON(['status' => 'success', 'message' => $this->notFound],404);
+            return response()->JSON(['curd_option' => 'checking list','status' => 'success', 'message' => $this->notFound],404);
         }
-        return response()->JSON(['status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
+        return response()->JSON(['curd_option' => 'list','status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
     }
 
     public function show($id)
     {
-        $result = $this->Model::Find($id);
+        $result = $this->Model::with('country')->find($id);
         if(is_null($result))
         {
-            return response()->JSON(['status' => 'success', 'message' => $this->notFound],404);
+            return response()->JSON(['curd_option' => 'checking list','status' => 'success', 'message' => $this->notFound],404);
         }
-        return response()->JSON(['status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
+        return response()->JSON(['curd_option' => 'list','status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
     }
 
     public function store($request)
