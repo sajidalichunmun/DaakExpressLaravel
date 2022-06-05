@@ -196,6 +196,12 @@ class UploadPreAssinedPodExcelDataController extends Controller
 											$barcodes = $generator->getBarcode($shipmentno,
 												$generator::TYPE_STANDARD_2_5,2,60);
 											
+											$jpg_barcode = new Picqer\Barcode\BarcodeGeneratorJPG();
+											file_put_contents("barcode/barcode/". $shipmentno .'.jpg',
+												$jpg_barcode->getBarcode($shipmentno,
+												$jpg_barcode::TYPE_CODE_128,3,50));
+
+											$data['barcode_src'] = $shipmentno .'.jpg';
 											$data1['shipmentno'] = $shipmentno;
 											$data1['awbbarcode'] = $barcodes;
 											

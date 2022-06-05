@@ -1,7 +1,7 @@
 <div class="form-group {{ $errors->has('CountryID') ? 'has-error' : '' }}">
     {!! Form::label('CountryID','Country Name',['class' => 'col-md-2 control-label',]) !!}
 	<div class="col-md-8">
-         {!! Form::select('CountryID', ['' => 'Select'] +$Country,'',array('class'=>'form-control','id'=>'CountryID','style'=>'width:100%', 'required' => true));!!}
+        {!! Form::select('CountryID',$Country,$result->City->State->Country->id ?? null, ['class' => 'form-control', 'required' => true, 'placeholder' =>'Select country name ...','title' => 'Country']) !!}
         {!! $errors->first('CountryID', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
@@ -9,18 +9,27 @@
 <div class="form-group {{ $errors->has('StateID') ? 'has-error' : '' }}">
     {!! Form::label('StateID','State Name',['class' => 'col-md-2 control-label',]) !!}
 	<div class="col-md-8">
-        <select name="StateID" id="StateID" class="form-control" style="width:100%"  required=true;>
-                </select>
-        {!! $errors->first('StateID', '<p class="help-block">:message</p>') !!}
+                @if($result !== null)
+                        {!! Form::select('StateID',$State,$result->City->State->id ?? null, ['class' => 'form-control', 'required' => true, 'placeholder' =>'Select state name ...','title' => 'Country']) !!}
+                @else
+                        <select name="StateID" id="StateID" class="form-control" style="width:100%"  required=true;>
+                        </select>
+                @endif
+                {!! $errors->first('StateID', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
 
 <div class="form-group {{ $errors->has('CityID') ? 'has-error' : '' }}">
     {!! Form::label('CityID','City Name',['class' => 'col-md-2 control-label',]) !!}
 	<div class="col-md-8">
-        <select name="CityID" id="CityID" class="form-control" style="width:100%" required=true;>
-                </select>
-        {!! $errors->first('CityID', '<p class="help-block">:message</p>') !!}
+        
+                @if($result !== null)
+                        {!! Form::select('CityID',$City,$result->City->id ?? null, ['class' => 'form-control', 'required' => true, 'placeholder' =>'Select city name ...','title' => 'Country']) !!}
+                @else
+                        <select name="CityID" id="CityID" class="form-control" style="width:100%" required=true;>
+                        </select>
+                @endif
+                {!! $errors->first('CityID', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
 

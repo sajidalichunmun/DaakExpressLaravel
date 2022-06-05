@@ -47,7 +47,8 @@ class AwbMasterModel extends Model
     	'UpdatedOn',
     	'IsActive',
 		'shipmentno',
-		'awbbarcode'
+		'awbbarcode',
+		'barcode_src'
     ];
     
     /**

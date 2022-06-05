@@ -114,11 +114,12 @@ class UpdatePodController extends Controller
 				return back()->withInput()->withErrors(['error' => $data['AwbNo']. ' not belong to selectd Franchisee']);
 			}
 			
+			$packetstatus = PacketStatusModel::where('id',$data['status'])->pluck('name');
 			DB::update('UPDATE AWBMASTER SET
 				Status = ?,
 				RouteDate = ?
 				WHERE AWBNO = ?',
-				[$data['status'],$data['scandate'],$data['AwbNo']]);
+				[$packetstatus[0],$data['scandate'],$data['AwbNo']]);
 			
 			$PodSlNo = 1;
 			$result = DB::select('SELECT CASE WHEN MAX(PodSlNo) IS NULL THEN 1 ELSE MAX(PodSlNo)+1 END as PodSlNo FROM AWBMASTER_HIST WHERE AWBNO = ?',[$data['AwbNo']]);
@@ -132,6 +133,7 @@ class UpdatePodController extends Controller
 			$data1['AwbNo'] = $data['AwbNo'];
 			$data1['HistDate'] = $data['scandate'];
 			$data1['HistStatus'] = $data['status'];
+			$data1['HistStatus'] = $packetstatus[0];
 			$data1['CreatedBy'] = Auth::user()->name;
 			$data1['CreatedOn'] = $created_at;
 			

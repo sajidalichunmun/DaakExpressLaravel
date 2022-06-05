@@ -34,7 +34,7 @@
 <div class="form-group {{ $errors->has('PickUpdate') ? 'has-error' : '' }}">
     {!! Form::label('PickUpdate','Pickeup Date',['class' => 'col-md-2 control-label',]) !!}
 	<div class="col-md-8">
-        {!! Form::text('PickUpdate',null, ['class' => 'form-control', 'minlength' => '1', 'maxlength' => '12', 'required' => true, 'placeholder' =>'select Pickeup','title' => 'Pickeup']) !!}
+        {!! Form::date('PickUpdate',null, ['class' => 'form-control', 'minlength' => '1', 'maxlength' => '12', 'required' => true, 'placeholder' =>'select Pickeup','title' => 'Pickeup']) !!}
         {!! $errors->first('PickUpdate', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>

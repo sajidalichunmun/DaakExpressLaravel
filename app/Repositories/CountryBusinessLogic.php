@@ -36,6 +36,16 @@ class CountryBusinessLogic implements IBusinessLogic
         return response()->JSON(['curd_option' => 'list','status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
     }
 
+    public function show($id)
+    {
+        $result = $this->Model::Find($id);
+        if(is_null($result))
+        {
+            return response()->JSON(['curd_option' => 'checking list','status' => 'success', 'message' => $this->notFound],404);
+        }
+        return response()->JSON(['curd_option' => 'list','status' => 'success', 'message' => 'success', 'data' => $result],$this->successStatus);
+    }
+    
     public function store($request)
     {
         try{

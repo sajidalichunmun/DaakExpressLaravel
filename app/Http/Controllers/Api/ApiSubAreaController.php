@@ -15,7 +15,7 @@ use App\Repositories\SubAreaBusinessLogic;
 class ApiSubAreaController extends Controller
 {
     private SubAreaBusinessLogic $logic;
-    public function __construct(RelationBusinessLogic $_logic)
+    public function __construct(SubAreaBusinessLogic $_logic)
     {
         $this->logic = $_logic;
     }

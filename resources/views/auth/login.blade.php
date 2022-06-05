@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SGL') }}</title>
+    <title>{{ config('app.name', 'Daak Express Courier & Logistics') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -113,14 +113,15 @@ background-color: #000 !important;
 
 
 
-
 	<div class="login-logo">
 		<a href="#"><b style ="color:#5390A7"><img src="{{ asset('/images/logo-sm2.png') }}" width="340px;" height="93px"/></b></a>
 	</div> 
 
 <form  method="POST" action="{{ route('login') }}" class="form-signin">
                         {{ csrf_field() }}
-                        <p class="login-box-msg">Sign in to start your session</p> 					
+                        <p class="login-box-msg">Sign in to start your session</p> 	
+                        <span class="help-block">
+                        
  <!--h2 class="text-center">LOGIN</h2-->
 
  <!--div class="input-container">
@@ -169,6 +170,11 @@ background-color: #000 !important;
                                     </span>
                                 @endif
                             </div>
+                            @if ($errors->has('errors'))
+                                <span class="help-block">
+                                    <strong style="color:red;">{{ $errors->first('errors') }}</strong>
+                                </span>
+                            @endif
                             <div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">Log in</button>
 							</div>
@@ -180,8 +186,6 @@ background-color: #000 !important;
                                 <a href="{{ route('forgotusername') }}" class="pull-right">Forgot Username?</a>
 							</div> 
                     </form>
-
-
 
 
 

@@ -14,7 +14,7 @@ use App\Http\Requests\CityFormRequest;
 use App\Models\CityModel;
 use App\Models\StateModel;
 use App\Models\CountryModel;
-
+use Validate;
 class CityController extends Controller
 {
     /**
@@ -66,10 +66,17 @@ class CityController extends Controller
      */
     public function store(CityFormRequest $request)
     {
+        // $validate = $request->validate([
+        //     'Name' => 'required|max:100',
+        //     'StateID' => 'required'
+        // ]);
+        // if(!$validate){
+        //     return response()->json(['message' => $validate->error],404);
+        // }
 		try
 		{
 			$data = $request->getData();
-			
+
 			$data['CreatedBy'] = Auth::user()->name;
 			
 			$curTime = new \DateTime();
@@ -125,10 +132,18 @@ class CityController extends Controller
      */
     public function update(CityFormRequest $request, $id)
     {
+        // $validate = $request->validate([
+        //     'Name' => 'required|max:100',
+        //     'StateID' => 'required'
+        // ]);
+        // if(!$validate){
+        //     return response()->json(['message' => $validate->error],404);
+        // }
 		try
 		{
 			$data = $request->getData();
 			
+            
 			$data['UpdatedBy'] = Auth::user()->name;
 				
 			$curTime = new \DateTime();

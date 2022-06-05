@@ -52,7 +52,7 @@ class PrintPodController extends Controller
                 ->leftjoin('FranchiseeMaster','AwbMaster.FranID','FranchiseeMaster.id')
                 ->where('AwbMaster.AwbNo',">=",$request->from)
                 ->where('AwbMaster.AwbNo',"<=",$request->to)
-                ->select('AwbNo','PodDate','ClientCodeMaster.Name as ClientCode','ClientMajorMaster.Name as MajorName','AwbMaster.shipmentno','AwbMaster.awbbarcode',
+                ->select('AwbNo','AwbMaster.RefNo','AwbMaster.barcode_src','PodDate','ClientCodeMaster.Name as ClientCode','ClientMajorMaster.Name as MajorName','AwbMaster.shipmentno','AwbMaster.awbbarcode',
                             'AwbMaster.Address1','AwbMaster.Address2','SubCityMaster.Name as ','AwbMaster.Pincode','CustomerName','FranchiseeMaster.id as FranID')
                 ->orderBy('AwbMaster.id')
                 ->get();
@@ -76,7 +76,7 @@ class PrintPodController extends Controller
                 ->join('SubCityMaster','AwbMaster.SubCityID','SubCityMaster.id')
                 ->leftjoin('FranchiseeMaster','AwbMaster.FranID','FranchiseeMaster.id')
                 //->where('AwbMaster.AwbNo',$request->from)
-                ->select('AwbNo','PodDate','ClientCodeMaster.Name as ClientCode','ClientMajorMaster.Name as MajorName','AwbMaster.shipmentno','AwbMaster.awbbarcode',
+                ->select('AwbNo','AwbMaster.RefNo','AwbMaster.barcode_src','PodDate','ClientCodeMaster.Name as ClientCode','ClientMajorMaster.Name as MajorName','AwbMaster.shipmentno','AwbMaster.awbbarcode',
                             'AwbMaster.Address1','AwbMaster.Address2','SubCityMaster.Name as ','AwbMaster.Pincode','CustomerName','FranchiseeMaster.id as FranID')
                 ->orderBy('AwbMaster.id')
                 //->get();
@@ -120,7 +120,7 @@ class PrintPodController extends Controller
                 ->join('ClientMajorMaster','ClientCodeMaster.ClientMajorID','ClientMajorMaster.id')
                 ->join('SubCityMaster','AwbMaster.SubCityID','SubCityMaster.id')
                 ->leftjoin('FranchiseeMaster','AwbMaster.FranID','FranchiseeMaster.id')
-                ->select('AwbNo','PodDate','ClientCodeMaster.Name as ClientCode','ClientMajorMaster.Name as MajorName','AwbMaster.shipmentno','AwbMaster.awbbarcode',
+                ->select('AwbNo','AwbMaster.RefNo','AwbMaster.barcode_src','PodDate','ClientCodeMaster.Name as ClientCode','ClientMajorMaster.Name as MajorName','AwbMaster.shipmentno','AwbMaster.awbbarcode',
                             'AwbMaster.Address1','AwbMaster.Address2','SubCityMaster.Name as ','AwbMaster.Pincode','CustomerName','FranchiseeMaster.id as FranID')
                 ->orderBy('AwbMaster.id')
                 ->get();

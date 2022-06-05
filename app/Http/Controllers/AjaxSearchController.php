@@ -73,7 +73,7 @@ class AjaxSearchController extends Controller
 							<dd>'. $row->SubCityName->Pincode .'</dd>
 							<dt>AWB No</dt>
 							<dd>'. $row->AwbNo .'</dd>
-							<dt>Ref No></dt>
+							<dt>Ref No</dt>
 							<dd>'. $row->RefNo .'</dd>
 							<dt>Customer Name</dt>
 							<dd>'. $row->CustomerName .'</dd>
@@ -90,9 +90,13 @@ class AjaxSearchController extends Controller
 							<dt>Country</dt>
 							<dd>'. $row->SubCityName->City->State->Country->Name .'</dd>
 							<dt>Barcode</dt>
-							<dd>'. $row->BarcodeNo .'</dd>
+							<dd>'. $row->awbbarcode
+							.'<div class="col-lg-12"><h4 class="text-center">'. $row->shipmentno .'</h4></div>
+							</dd>
 							<dt>Status</dt>
 							<dd>'. $row->Status .'</dd>
+							<dt>Route Date</dt>
+							<dd>'. date('d-m-Y', strtotime($row->RouteDate)) .'</dd>
 						</dl>
                     </div>
 					</table></div>		';
@@ -548,9 +552,17 @@ class AjaxSearchController extends Controller
 			$search = strtoupper($req->get('search'));
 			if($search)
 			{
+				/*
 				$query = "SELECT CONCAT(Prefix,LPAD((AllocatedSeries),Length-(LENGTH(Prefix)),'0')) PODNO,
 					AllocationQty,Prefix,Length,SeriesFrom,SeriesTo,AllocatedSeries,
 					(AllocationQty-AllocatedSeries) Balance
+					FROM seriesmaster WHERE ID = ". $search ."
+					AND AllocationQty>(AllocatedSeries+1) AND IsActive='YES'";
+				*/
+
+				$query = "SELECT CONCAT(Prefix,LPAD(((AllocatedSeries+1)),Length-(LENGTH(Prefix)),'0')) PODNO,
+					AllocationQty,Prefix,Length,SeriesFrom,SeriesTo,AllocatedSeries AllocatedSeries,
+					(AllocationQty-AllocatedSeries)) Balance
 					FROM seriesmaster WHERE ID = ". $search ."
 					AND AllocationQty>(AllocatedSeries+1) AND IsActive='YES'";
 

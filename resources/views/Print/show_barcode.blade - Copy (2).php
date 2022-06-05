@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+<div class="alert alert-dismissible" role="alert">
+	<button type="button" title="Close" class="close" aria-label="Close"><span aria-hidden="true"><a href="{{url('/home')}}">&times;</a>		</span></button>
+</div>
     <div class="panel panel-primary">
         @if(count($result) == 0)
             <div class="panel-body text-center">

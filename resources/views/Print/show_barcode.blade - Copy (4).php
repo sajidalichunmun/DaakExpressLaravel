@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+<div class="alert alert-dismissible" role="alert">
+	<button type="button" title="Close" class="close" aria-label="Close"><span aria-hidden="true"><a href="{{url('/home')}}">&times;</a>		</span></button>
+</div>
      <div class="container-fluid">
         <div class="col-lg-12">
             <div class="row"> 

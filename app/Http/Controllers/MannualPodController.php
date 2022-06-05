@@ -56,10 +56,16 @@ class MannualPodController extends Controller
 		
         //dd($result);
 		
-		$prevclientid = $result->ClientCode->id;
-		$prevmajorname = $result->ClientCode->MajorResult->Name;
-		$prevclientname = $result->ClientCode->Name;
-		$prevpodno = $result->AwbNo;
+		$prevclientid = '';
+		$prevmajorname = '';
+		$prevclientname = '';
+		$prevpodno = '';
+		if( $result != null){
+			$prevclientid = $result->ClientCode->id;
+			$prevmajorname = $result->ClientCode->MajorResult->Name;
+			$prevclientname = $result->ClientCode->Name;
+			$prevpodno = $result->AwbNo;
+		}
 		
         return view('MannualPod.create',compact('rr','prevclientid','prevmajorname','prevclientname','prevpodno'));   
     }
@@ -116,9 +122,16 @@ class MannualPodController extends Controller
 			$shipmentno = rand(106890122,100000000);
 			$redColor = '255,0,0';
 			$generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+			
 			$barcodes = $generator->getBarcode($shipmentno,
 				$generator::TYPE_STANDARD_2_5,2,60);
 			
+			$jpg_barcode = new Picqer\Barcode\BarcodeGeneratorJPG();
+			file_put_contents("barcode/barcode/". $shipmentno .'.jpg',
+				 $jpg_barcode->getBarcode($shipmentno,
+				$jpg_barcode::TYPE_CODE_128,3,50));
+
+			$data['barcode_src'] = $shipmentno .'.jpg';
 			$data['shipmentno'] = $shipmentno;
 			$data['awbbarcode'] = $barcodes;
 			$data['CreatedBy'] = Auth::user()->name;

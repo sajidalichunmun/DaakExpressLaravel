@@ -151,16 +151,23 @@
 $(document).ready(function(){
     $('.view_data').click(function(e){
 	   event.preventDefault();
-       if($('#podno').val()=='')
-       {
-           alert("Please enter a valid LR Number");
-           return false;
-       }
 	   var id=$('#tracking-id').val();
 	   var radiovalue=document.querySelector('input[name="radio"]:checked').value;
 	   var podno = $('#podno').val();
        var div = document.getElementById('search-pod');
        var div1 = document.getElementById('pod-details');
+       if($('#podno').val()=='')
+       {
+            console.log(radiovalue);
+           if(radiovalue === 'track_id')
+            alert("Please enter a valid Awb Number");
+           else if(radiovalue === 'orderId')
+                alert("Please enter a valid Ref Number");
+           else if(radiovalue === 'lrnumber')
+                alert("Please enter a valid Barcode Number");
+           
+           return false;
+       }
        console.log(div);
        console.log(div1);
        if(div != null)

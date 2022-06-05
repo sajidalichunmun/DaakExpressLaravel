@@ -66,10 +66,21 @@ class SubAreaController extends Controller
      */
     public function store(SubAreaFormRequest $request)
     {
+        // $request->validate([
+        //     'CityID' => 'required',
+        //     'Name' => 'required|max:100',
+        //     'MainAreaName' => 'required|max:100',
+        //     'Pincode' => 'required|max:10'
+        // ]);
+
+        // if(!$validate){
+        //     return response()->json(['message' => $validate->error],404);
+        // }
 		try
 		{
+
 			$data = $request->getData();
-			
+
 			$data['CreatedBy'] = Auth::user()->name;
 			
 			$curTime = new \DateTime();
@@ -126,8 +137,18 @@ class SubAreaController extends Controller
      */
     public function update(SubAreaFormRequest $request, $id)
     {
+        // $validate = $request->validate([
+        //     'CityID' => 'required',
+        //     'Name' => 'required|max:100',
+        //     'MainAreaName' => 'required|max:100',
+        //     'Pincode' => 'required|max:10'
+        // ]);
+        // if(!$validate){
+        //     return response()->json(['message' => $validate->error],404);
+        // }
 		try
 		{
+           
 			$data = $request->getData();
 			
 			$data['UpdatedBy'] = Auth::user()->name;

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="alert alert-dismissible" role="alert">
+	<button type="button" title="Close" class="close" aria-label="Close"><span aria-hidden="true"><a href="{{url('/home')}}">&times;</a>		</span></button>
+</div>
     <div class="panel panel-primary">
 
         <div class="panel-heading clearfix">
@@ -75,7 +77,7 @@
            success:function(res){               
             if(res){
                 $("#StateID").empty();
-                $("#StateID").append('<option>Select</option>');
+                $("#StateID").append('<option value="">Select state name ...</option>');
                 $.each(res,function(key,value){
                     $("#StateID").append('<option value="'+key+'">'+value+'</option>');
                 });
